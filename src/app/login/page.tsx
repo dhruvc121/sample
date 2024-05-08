@@ -29,7 +29,7 @@ export default function Login() {
         </CardContent>
         <CardFooter className="flec flex-col">
           <Button variant="outline">Login</Button>
-          <p className="flex text-sm">
+          <p className="flex text-sm mt-1">
           Don&apos;t have an account?
           <Link href="/register" className="text-blue-700">Sign Up</Link>
           </p>
