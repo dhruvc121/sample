@@ -1,9 +1,12 @@
+import Filters from "@/components/filter";
+import ProductTable from "@/components/producttable";
+
 import { Label } from "@/components/ui/label";
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import Image from "next/image";
+import { Products } from "@/types";
+
 
 const Product = () => {
-    const invoices = [
+    const products:Products[]= [
         {
           id: "1",
           image:"https://picsum.photos/50",
@@ -58,31 +61,14 @@ const Product = () => {
         <div className="flex flex-col">
         <Label className="text-lg">Product List</Label>
         <hr />
-        <Table>
-            <TableCaption>A list of all products.</TableCaption>
-            <TableHeader>
-                <TableRow>
-                <TableHead className="w-[100px]">Id</TableHead>
-                <TableHead >Image</TableHead>
-                <TableHead>Product Name</TableHead>
-                <TableHead>Rate</TableHead>
-                <TableHead className="text-right">Category</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {invoices.map((invoice) => (
-                <TableRow key={invoice.id}>
-                    <TableCell className="font-medium">{invoice.id}</TableCell>
-                    <TableCell className="font-medium">
-                        <Image width={50} height={50} src={invoice.image} alt={invoice.productName}></Image>
-                    </TableCell>
-                    <TableCell>{invoice.productName}</TableCell>
-                    <TableCell>{invoice.rate}</TableCell>
-                    <TableCell className="text-right">{invoice.category}</TableCell>
-                </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+        <div className="flex gap-1">
+        <div className="filter-section w-1/6">
+            <Filters/>
+        </div>
+        <div className="table-section w-5/6">
+            <ProductTable products={products}/>
+        </div>
+        </div>
         </div>
     );
 }
