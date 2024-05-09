@@ -4,8 +4,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router=useRouter()
+  const handleLogin=()=>{
+    router.push('/')
+  }
   return (
     <div className="w-100 h-full flex justify-center items-center">
       <Card className="w-[350px]">
@@ -28,7 +33,7 @@ export default function Login() {
           </form>
         </CardContent>
         <CardFooter className="flec flex-col">
-          <Button variant="outline">Login</Button>
+          <Button variant="outline" onClick={handleLogin}>Login</Button>
           <p className="flex text-sm mt-1">
           Don&apos;t have an account?
           <Link href="/register" className="text-blue-700">Sign Up</Link>
