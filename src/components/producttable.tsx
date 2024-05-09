@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { PencilIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { Products } from "@/types";
+import Pagination from "./pagination";
 const ProductTable = ({products}:{products:Products[]}) => {
     
     return (
@@ -42,6 +43,13 @@ const ProductTable = ({products}:{products:Products[]}) => {
                 </TableRow>
                 ))}
             </TableBody>
+            <TableFooter>
+                <TableRow>
+                    <TableCell colSpan={6} className="text-center">
+                    <Pagination/>
+                    </TableCell>
+                </TableRow>
+            </TableFooter>
         </Table>
         </div>
     );
