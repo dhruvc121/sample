@@ -58,17 +58,17 @@ const Product = () => {
         },
       ]
     return (
-        <div className="flex flex-col">
-        <Label className="text-lg">Product List</Label>
-        <hr />
-        <div className="flex gap-1">
-        <div className="filter-section w-1/6">
-            <Filters/>
-        </div>
-        <div className="table-section w-5/6">
-            <ProductTable products={products}/>
-        </div>
-        </div>
+        <div className="w-full h-full flex flex-col">
+          <Label className="text-lg">Product List</Label>
+          <hr />
+          <div className="flex gap-1">
+            <div className="filter-section w-1/6">
+              <Filters/>
+            </div>
+            <div className="table-section w-5/6">
+              <ProductTable products={products}/>
+            </div>
+          </div>
         </div>
     );
 }

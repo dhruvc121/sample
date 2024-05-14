@@ -9,22 +9,22 @@ import { Label } from "@radix-ui/react-label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function AddProduct() {
+export default function ProductEdit() {
   const router=useRouter()
   const handleSubmit=()=>{
-    router.push('/product/add')
+    router.push('/product')
         toast({
           variant:"default",
           title: "Success",
-          description: "Product added successfully",
+          description: "Product updated successfully",
         })
   }
   return (
     <div className="w-full h-full flex justify-center items-center">
       <Card className="w-1/3">
         <CardHeader>
-          <CardTitle>Add Product</CardTitle>
-          <CardDescription>Add new products to your lineup.</CardDescription>
+          <CardTitle>Edit Product</CardTitle>
+          <CardDescription>Update your product.</CardDescription>
         </CardHeader>
         <CardContent>
           <form>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -18,10 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container flex flex-col min-h-screen">
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body className="">
+        <div className="w-full h-full container flex flex-col min-h-screen">
+
+        <div className="navbar-section">
+          <Navbar/>
+        </div>
+        
+          <main className="flex flex-grow">
+            {children}
+          </main>
+        
+        <div className="footer-section">
+          <Footer/>
+        </div>
+
+        <Toaster/>
+        </div>
       </body>
     </html>
   );

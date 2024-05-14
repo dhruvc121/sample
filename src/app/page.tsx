@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router=useRouter()
   return (
-    <main className="flex flex-col w-full h-full gap-1">
+    <div className="flex flex-col w-full h-full gap-1">
       <div className="flex gap-1 w-full h-1/2">
         <div className="w-1/2 h-full border">
             <Label>Total Sales</Label>
@@ -23,6 +23,6 @@ export default function Home() {
             <Label>Product sale pie chart</Label>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
