@@ -12,49 +12,63 @@ const Product = () => {
           image:"https://picsum.photos/50",
           productName: "Red Printed Shirt",
           rate: "$25.00",
-          category: "casual",
+          occasion: "casual",
+          category: "clothing",
+          color:"red"
         },
         {
           id: "2",
           image:"https://picsum.photos/50",
           productName: "Ligh Blue Shirt",
           rate: "$15.00",
-          category: "formal",
+          occasion: "formal",
+          category: "clothing",
+          color:"blue"
         },
         {
           id: "3",
           image:"https://picsum.photos/50",
           productName: "Light Pink Shirt",
           rate: "$35.00",
-          category: "formal",
+          occasion: "formal",
+          category: "clothing",
+          color:"pink"
         },
         {
           id: "4",
           image:"https://picsum.photos/50",
           productName: "Light Green Shirt",
           rate: "$45.00",
-          category: "formal",
+          occasion: "formal",
+          category: "clothing",
+          color:"green"
         },
         {
           id: "5",
           image:"https://picsum.photos/50",
           productName: "Black Trouser",
           rate: "$55.00",
-          category: "formal",
+          occasion: "formal",
+          category: "clothing",
+          color:"black"
         },
         {
           id: "6",
           image:"https://picsum.photos/50",
           productName: "Dark Gray Trouser",
           rate: "$20.00",
-          category: "formal",
+          occasion: "formal",
+          category: "clothing",
+          color:"gray"
         },
         {
           id: "7",
           image:"https://picsum.photos/50",
           productName: "Printed Blue Shirt",
           rate: "$30.00",
-          category: "casual",
+          occasion: "casual",
+          category: "clothing",
+          color:"blue"
         },
       ]
     return (

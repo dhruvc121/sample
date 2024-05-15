@@ -46,6 +46,14 @@ export default function ProductEdit() {
                 <Input id="category" placeholder="Category" />
               </div>
               <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="occasion">Occasion</Label>
+                <Input id="occasion" placeholder="Occasion" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="image">Image</Label>
+                <Input type="file" id="image" placeholder="Image" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="image">Image</Label>
                 <Input type="file" id="image" placeholder="Image" />
               </div>

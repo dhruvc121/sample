@@ -5,4 +5,6 @@ export interface Products {
           productName: string;
           rate: string;
           category: string;
+          occasion: string;
+          color: string;
   }

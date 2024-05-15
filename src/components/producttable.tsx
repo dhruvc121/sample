@@ -16,7 +16,9 @@ const ProductTable = ({products}:{products:Products[]}) => {
                 <TableHead >Image</TableHead>
                 <TableHead>Product Name</TableHead>
                 <TableHead>Rate</TableHead>
+                <TableHead className="text-right">Color</TableHead>
                 <TableHead className="text-right">Category</TableHead>
+                <TableHead className="text-right">Occasion</TableHead>
                 <TableHead className="text-right">Action</TableHead>
                 </TableRow>
             </TableHeader>
@@ -29,7 +31,9 @@ const ProductTable = ({products}:{products:Products[]}) => {
                     </TableCell>
                     <TableCell>{product.productName}</TableCell>
                     <TableCell>{product.rate}</TableCell>
+                    <TableCell className="text-right">{product.color}</TableCell>
                     <TableCell className="text-right">{product.category}</TableCell>
+                    <TableCell className="text-right">{product.occasion}</TableCell>
                     <TableCell>
                         <div className="flex float-end">
                             <Button variant={"outline"} size={"sm"}>
@@ -45,7 +49,7 @@ const ProductTable = ({products}:{products:Products[]}) => {
             </TableBody>
             <TableFooter>
                 <TableRow>
-                    <TableCell colSpan={6} className="text-center">
+                    <TableCell colSpan={8} className="text-center">
                     <PaginationBlock/>
                     </TableCell>
                 </TableRow>

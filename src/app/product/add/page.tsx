@@ -42,8 +42,16 @@ export default function AddProduct() {
                 <Input type="number" id="rate" placeholder="Rate" />
               </div>
               <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="color">Color</Label>
+                <Input id="color" placeholder="Color" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="category">Category</Label>
                 <Input id="category" placeholder="Category" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="occasion">Occasion</Label>
+                <Input id="occasion" placeholder="Occasion" />
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="image">Image</Label>
