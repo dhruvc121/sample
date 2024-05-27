@@ -1,13 +1,13 @@
 "use server"
 import {PrismaClient} from '@prisma/client'
 
-export async function addUser(){
+export async function addUser(username:string,password:string){
     const prisma= new PrismaClient()
     try{
         const res = await prisma.user.create({
             data:{
-                username:"admin",
-                password:"admin",
+                username,
+                password,
                 role:"ADMIN"
             }
         })
