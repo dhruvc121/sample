@@ -42,16 +42,16 @@ export default function ProductEdit() {
                 <Input type="number" id="rate" placeholder="Rate" />
               </div>
               <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="occasion">Color</Label>
+                <Input id="occasion" placeholder="Occasion" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="category">Category</Label>
                 <Input id="category" placeholder="Category" />
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="occasion">Occasion</Label>
+                <Label htmlFor="image">Ocassion</Label>
                 <Input id="occasion" placeholder="Occasion" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="image">Image</Label>
-                <Input type="file" id="image" placeholder="Image" />
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="image">Image</Label>

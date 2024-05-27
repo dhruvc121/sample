@@ -17,6 +17,8 @@ export default function AddProduct() {
           variant:"default",
           title: "Success",
           description: "Product added successfully",
+          className:"border-green-600 text-green-600",
+          duration:1000
         })
   }
   return (

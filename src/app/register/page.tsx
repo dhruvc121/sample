@@ -1,13 +1,37 @@
 "use client"
+
+import { addUser } from "@/actions/userActions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/use-toast";
 import { Label } from "@radix-ui/react-label";
 import Link from "next/link";
 
 const Register = () => {
+    const handleSubmit=async()=>{
+        try{
+            //await addUser()
+            toast({
+            variant:"default",
+            title: "Success",
+            description: "User registered successfully",
+            className:"border-green-600 text-green-600",
+            duration:1000
+            })
+        }catch(err){
+            toast({
+            variant:"default",
+            title: "Failure",
+            description: "Could not register user",
+            className:"border-green-600 text-green-600",
+            duration:1000
+            })
+        }
+
+    }
     return (
-        <div className="w-100 h-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center">
             <Card className="w-[350px]">
                 <CardHeader>
                 <CardTitle>Register</CardTitle>
@@ -32,7 +56,7 @@ const Register = () => {
                 </form>
                 </CardContent>
                 <CardFooter className="flec flex-col">
-                <Button variant="outline">Register</Button>
+                <Button variant="outline" onClick={handleSubmit}>Register</Button>
                 <p className="flex text-sm mt-1">
                     Already have an account?
                 <Link href="/login" className="text-blue-700">Sign In</Link>

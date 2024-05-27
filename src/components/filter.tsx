@@ -50,7 +50,7 @@ const Filters = () => {
                     <div className="checkbox-container flex flex-col justify-center">
                     {
                         ['Red','Blue','Green','Black','Gray','Pink'].map((color)=>{
-                            return <div className="flex justify-start m-1">
+                            return <div className="flex justify-start m-1" key={color}>
                                 <Checkbox id={color} name="color" value={color}/>
                                 <Label htmlFor={color} className="mx-1">{color}</Label>
                             </div>
@@ -63,7 +63,7 @@ const Filters = () => {
                     <div className="checkbox-container flex flex-col justify-center">
                     {
                         ['Clothing'].map((category)=>{
-                            return <div className="flex justify-start m-1">
+                            return <div className="flex justify-start m-1" key={category}>
                                 <Checkbox id={category} name="category" value={category}/>
                                 <Label htmlFor={category} className="mx-1">{category}</Label>
                             </div>
@@ -76,7 +76,7 @@ const Filters = () => {
                     <div className="checkbox-container flex flex-col justify-center">
                     {
                         ['Formal','Casual'].map((occasion)=>{
-                            return <div className="flex justify-start m-1">
+                            return <div className="flex justify-start m-1" key={occasion}>
                                 <Checkbox id={occasion} name="occasion" value={occasion}/>
                                 <Label htmlFor={occasion} className="mx-1">{occasion}</Label>
                             </div>
