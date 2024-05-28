@@ -18,6 +18,7 @@ export default function Login() {
     },onSubmit:async(values:any,actions)=>{
       try{ 
         console.log(values)
+        
         const res=await getUser(values.username,values.password)
         console.log(res)
         toast({
@@ -26,7 +27,7 @@ export default function Login() {
           className:"bg-green-400 text-white text-lg",
           duration:1000
         })
-        
+        router.replace('/')
         resetForm()
       }catch(err){
         toast({
@@ -37,19 +38,7 @@ export default function Login() {
       }
     }
   })
-  const handleLogin=async()=>{
-    try{
-      const user=await getUser("admin","admin")
-      toast({
-        variant:"default",
-        title: `Welcome ${user.username}`,
-        className:"border-green-600 text-green-600",
-        duration:1000
-      })
-    }catch(err){
-
-    }
-  }
+  
   return (
     <div className="w-full h-full flex justify-center items-center">
       <Card className="w-[350px]">

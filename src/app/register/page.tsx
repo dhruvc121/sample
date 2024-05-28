@@ -22,6 +22,7 @@ const Register = () => {
         validationSchema:registerSchema,
         onSubmit:async(values,actions)=>{
             try{
+                alert("here")
                 console.log(values)
                 if(values.password===values.cpassword){
                     await addUser(values.username,values.password)
@@ -51,12 +52,13 @@ const Register = () => {
     return (
         <div className="w-full h-full flex justify-center items-center">
             <Card className="w-[350px]">
+            <form onSubmit={handleSubmit}>
                 <CardHeader>
                 <CardTitle>Register</CardTitle>
                 <CardDescription>Create your account by filling the details</CardDescription>
                 </CardHeader>
                 <CardContent>
-                <form onSubmit={handleSubmit}>
+                
                     <div className="grid w-full items-center gap-4">
                     <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="username">Username</Label>
@@ -75,11 +77,11 @@ const Register = () => {
                         <p className="text-sm text-red-500 mx-0 capitalize">{errors.password}</p>
                     )}
                     <div className="flex flex-col space-y-1.5">
-                        <Label htmlFor="confirm-password">Confirm Password</Label>
-                        <Input id="confirm-password" placeholder="Confirm Password" onChange={handleChange} onBlur={handleBlur} type="password" value={values.cpassword} />
+                        <Label htmlFor="cpassword">Confirm Password</Label>
+                        <Input id="cpassword" placeholder="Confirm Password" onChange={handleChange} onBlur={handleBlur} type="password" value={values.cpassword} />
                     </div>
                     </div>
-                </form>
+                
                 </CardContent>
                 <CardFooter className="flec flex-col">
                 <Button variant="outline" type="submit">Register</Button>
@@ -88,6 +90,7 @@ const Register = () => {
                 <Link href="/login" className="text-blue-700">Sign In</Link>
                 </p>
                 </CardFooter>
+                </form>
             </Card>
         </div>
     );
