@@ -4,13 +4,15 @@ import { PencilIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { Products } from "@/types";
 import PaginationBlock from "./pagination";
+import { ScrollArea } from "./ui/scroll-area";
 const ProductTable = ({products}:{products:Products[]}) => {
     
     return (
-        <div>
-            <Table>
+        <div className=" max-h-full w-full overflow-auto border">
+            
+            <Table className="">
             <TableCaption>A list of all products.</TableCaption>
-            <TableHeader>
+            <TableHeader className="min-w-full">
                 <TableRow>
                 <TableHead className="w-[100px]">Id</TableHead>
                 <TableHead >Image</TableHead>
@@ -22,7 +24,8 @@ const ProductTable = ({products}:{products:Products[]}) => {
                 <TableHead className="text-right">Action</TableHead>
                 </TableRow>
             </TableHeader>
-            <TableBody>
+            <div className="max-h-full w-full overflow-auto"></div>
+            <TableBody className="">
                 {products.map((product:Products) => (
                 <TableRow key={product.id}>
                     <TableCell className="font-medium">{product.id}</TableCell>
@@ -54,7 +57,7 @@ const ProductTable = ({products}:{products:Products[]}) => {
                     </TableCell>
                 </TableRow>
             </TableFooter>
-        </Table>
+        </Table>    
         </div>
     );
 }

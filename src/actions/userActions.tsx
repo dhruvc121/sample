@@ -1,5 +1,7 @@
 "use server"
 import {PrismaClient} from '@prisma/client'
+import { cookies } from 'next/headers'
+
 
 export async function addUser(username:string,password:string){
     const prisma= new PrismaClient()
@@ -31,7 +33,7 @@ export async function getUser(username:string,password:string):Promise<any> {
                 password
             }
         })
-        console.log(res)
+        cookies().set('user',JSON.stringify(res))
         return res
     }catch(err){
         console.log(err)

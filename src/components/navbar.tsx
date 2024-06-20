@@ -15,12 +15,22 @@ import {
     PopoverTrigger,
   } from "./ui/popover"
 import { Button } from "./ui/button";
+// import { cookies } from "next/headers";
+// import { useEffect } from "react";
 
   
 
 
 const Navbar = () => {
+    
+    // useEffect(()=>{
+    //     'use server'
+    //     const user=cookies().get('user')?.value
+    //     console.log(user)
+    // },[])
+
     const username="user"
+
     return (
         <NavigationMenu className="w-full flex justify-between items-center max-w-none">
             <div className="logo">
