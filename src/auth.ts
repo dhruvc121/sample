@@ -1,15 +1,34 @@
 import NextAuth from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
+import CredentialsPovider from 'next-auth/providers/credentials'
+import { getUser } from './actions/userActions';
 
-NextAuth({
+
+export const {
+    handlers:{GET,POST},
+    signIn,
+    signOut,
+    auth
+}=NextAuth({
     session:{
-        strategy:'jwt'
+        strategy:"jwt"
     },
     providers:[
-        CredentialsProvider({
+        CredentialsPovider({
             async authorize(credentials){
-                return ""
+                if (!credentials || typeof credentials.email !== "string" || typeof credentials.password !== "string") {
+                    return null;
+                }
+                try {
+                    const user = await getUser(credentials.email, credentials.password);
+                    return user ? user : null;  // Ensure returning User or null
+                } catch (error) {
+                    console.error("Error during authorization:", error);
+                    return null;
+                }
             }
         })
     ]
 })
+
+

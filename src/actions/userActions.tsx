@@ -39,3 +39,8 @@ export async function getUser(username:string,password:string):Promise<any> {
         console.log(err)
     }
 }
+
+
+export async function googlelogin(formdata:any) {
+    console.log(formdata)
+}
