@@ -23,11 +23,13 @@ enum Role {
 model Product {
     productId Int @id @default(autoincrement())
     productName String
+    productDesc String?
     rate Float @default(0.0)
     color String 
     category String
     occasion String
-    image String?
+    image String
+    sizes String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
