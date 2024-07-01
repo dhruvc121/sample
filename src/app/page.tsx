@@ -5,10 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-  const router=useRouter()
-  useEffect(()=>{
-
-  },[])
+ 
   return (
     <div className="flex flex-col w-full h-full gap-1">
       <div className="flex gap-1 w-full h-1/2">

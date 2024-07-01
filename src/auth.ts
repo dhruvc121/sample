@@ -1,34 +1,55 @@
-import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import CredentialsPovider from 'next-auth/providers/credentials'
-import { getUser } from './actions/userActions';
-
-
-export const {
-    handlers:{GET,POST},
-    signIn,
-    signOut,
-    auth
-}=NextAuth({
-    session:{
-        strategy:"jwt"
+import NextAuth, { CredentialsSignin } from "next-auth"
+import credentials from 'next-auth/providers/credentials'
+import { getUser } from "./actions/userActions"
+ 
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [
+    credentials({
+      
+      name:"credentials",
+      credentials:{
+        username:{label:"Username",type:"text"},
+        password:{label:"Password",type:"password"}
+      },
+      authorize:async(credentials)=>{
+        
+        const username=credentials.username as string
+        const password=credentials.password as string
+        console.log(username,password,"============")
+        if(!credentials.username || !credentials.password) throw new CredentialsSignin("No credentials provided")
+        
+        
+        const res=await getUser(username,password)
+        //console.log(res)
+       
+        
+        return res
+        
+      }
+    })
+  ],
+  pages:{
+    signIn:"/login"
+  },
+  callbacks: {
+    async jwt({user, token}) {
+        if (user) {
+            token.user = user;
+        }
+       // console.log(user,token,"user token")
+        return token;
     },
-    providers:[
-        CredentialsPovider({
-            async authorize(credentials){
-                if (!credentials || typeof credentials.email !== "string" || typeof credentials.password !== "string") {
-                    return null;
-                }
-                try {
-                    const user = await getUser(credentials.email, credentials.password);
-                    return user ? user : null;  // Ensure returning User or null
-                } catch (error) {
-                    console.error("Error during authorization:", error);
-                    return null;
-                }
-            }
-        })
-    ]
+    async session({session, token}: any) {
+        session.user = token.user;
+        return session;
+    },
+
+    signIn:async({account,user})=>{
+      if(account?.provider=="credentials"){
+        return true
+      }else{
+        return false
+      }
+    }
+  },
 })
-
-
